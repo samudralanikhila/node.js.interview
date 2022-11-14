@@ -71,5 +71,80 @@
       <li>local Modules</li>
       <li>Third-party Modules</li>
     </ul>
+    <p>
+      <b>Core Modules:</b> Node.js has many built-in modules that are part of
+      the platform and comes with Node.js installation. These modules can be
+      loaded into the program by using the require function.
+    </p>
+    <b>syntax:</b>
+    <pre>      var module = require('module_name');</pre>
+    <pre>
+      example :
+      var http = require('http');
+      http.createServer(function (req, res) {
+        res.writeHead(200, {'Content-Type': 'text/html'});
+        res.write('Welcome to this page!');
+        res.end();
+      }).listen(3000)
+    </pre>
+    <p>core module like https , url , path, os we are expernal server</p>
+    <p>
+      <b>Local Modules:</b> Unlike built-in and external modules, local modules
+      are created locally in your Node.js application.
+    </p>
+    <p>we are importing the local module created in our application</p>
+    <p>var calculator = require('./calc')</p>
+    <p>
+      <b>Third-party modules:</b> Third-party modules are modules that are
+      available online using the Node Package Manager(NPM). These modules can be
+      installed in the project folder or globally. Some of the popular
+      third-party modules are mongoose, express, angular, and react.
+    </p>
+    <p>example</p>
+    <ul>
+      <li>npm install express</li>
+      <li>npm install mongoose</li>
+      <li>npm install -g @angular/cli</li>
+    </ul>
+    <h1>What is the purpose of the module.exports?</h1>
+    <p>	Module.exports is the instruction that tells Node. js which bits of code (functions, objects, strings, etc.) to “export” from a given file so other files are allowed to access the exported code. The module.exports is actually a property of the module object in node.js. module. Exports is the object that is returned to the require() call. By module.exports, we can export functions, objects, and their references from one file and can use them in other files by importing them by require() method. easy to maintain and manage the code base in different modules. 
+      </p>
+      <h1>Difference between default export and named export</h1>
+      <p>Export objects, functions, variables from the module so they can be used by other programs with the help of the import statements.</p>
+        <p>There are two types of exports. <br>
+                  1. Named Exports,<br>
+                  2. Default Exports. <br></p>
+       <p>Named Exports: Named exports are useful to export several values. 
+        During the import, it is mandatory to use the same name of the corresponding object.
+        Named exports allow us to share multiple objects, functions or variables from a single file and were introduced with the release of ES2015.</p>
+         Named exports are imported with curly braces in various files and must be imported using the name of the object, function or variable that was exported. 
+        <pre>
+          //Exporting individual features:
+         export var name1 = …, name2 = …, …, nameN; // also let, const
+        // Export list :
+        export { name1, name2, …, nameN };
+        //Exporting everything at once :
+        export { object, number, x, y, boolean, string }
+        // Renaming exports:
+         export { variable1 as name1, variable2 as name2, …, nameN };
+        // export features declared earlier:
+         export { myFunction, myVariable };
+        </pre>
+       <p> Default Exports: Default exports are useful to export only a single object, function, variable. During the import, we can use any name to import.Exports without a default tag are Named exports. Exports with the default tag are Default exports.
+        default export:- Using Named and Default Exports at the same time: It is possible to use Named and Default exports in the same file. It means both will be imported in the same file. Example: javascript.</p>
+       <pre>
+         function defau(req,res){
+           res.send("default exports")
+        }
+        function named(req,res) {
+         res.send('named exports')
+        }
+    
+        module.exports = default;//default export
+        module.exports = {named};//named export
+    </pre>
+    <h1>How do you import any module in Node.js</h1>
+    <p>Importing a Module: We need to import the module to use the functions defined in the imported module in another file. The result returned by require() is stored in a variable which is used to invoke the functions using the dot notation.<br>
+      <pre>const f = require('./func')</pre></p>
   </body>
 </html>
